@@ -1,0 +1,68 @@
+<app-home></app-home>
+
+
+<div class="container mt-4">
+
+    <header class="bg-dark text-white p-2 mb-2 text-center">
+        <h1>Editar Producto</h1>
+    </header>
+
+    <form [formGroup]="form">
+
+        <div class="from-group">
+            <label for="id">ID</label>
+            <input type="number" formControlName="id" name="id" class="form-control" [(ngModel)]="articulos.id"
+            placeholder="Ingrese ID" [ngClass]="{'is-invalid' : submitted && f['id'].errors }" >
+
+            <div *ngIf="submitted && f['id'].errors " class="invalid-feedback">
+                <div *ngIf="f['id'].errors['required']">
+                    Cantidad es requerido
+                </div>
+            </div>
+
+        </div> 
+
+        <div class="from-group">
+            <label for="descripcion">Descripción</label>
+            <input type="text" formControlName="descripcion" name="descripcion" class="form-control" [(ngModel)]="articulos.descripcion"
+            placeholder="Ingrese descripcion" [ngClass]="{'is-invalid' : submitted && f['descripcion'].errors }" >
+
+            <div *ngIf="submitted && f['descripcion'].errors " class="invalid-feedback">
+                <div *ngIf="f['descripcion'].errors['required']">
+                    Descripción es requerido
+                </div>
+            </div>
+
+        </div>
+
+        <div class="from-group">
+            <label for="precio">Precio</label>
+            <input type="number" formControlName="precio" name="precio" class="form-control" [(ngModel)]="articulos.precio"
+            placeholder="Ingrese precio" [ngClass]="{'is-invalid' : submitted && f['precio'].errors }" >
+
+            <div *ngIf="submitted && f['precio'].errors " class="invalid-feedback">
+                <div *ngIf="f['precio'].errors['required']">
+                    Precio es requerido
+                </div>
+            </div>
+
+        </div>   
+        
+        <div class="from-group">
+            <label for="stock">Cantidad</label>
+            <input type="number" formControlName="stock" name="stock" class="form-control" [(ngModel)]="articulos.stock"
+            placeholder="Ingrese cantidad" [ngClass]="{'is-invalid' : submitted && f['stock'].errors }" >
+
+            <div *ngIf="submitted && f['stock'].errors " class="invalid-feedback">
+                <div *ngIf="f['stock'].errors['required']">
+                    Cantidad es requerido
+                </div>
+            </div>
+
+        </div> 
+
+        <button class="btn btn-success btn-sm mt-4"  (click)="updateProducts()">Actualizar</button>
+
+    </form>
+</div>
+

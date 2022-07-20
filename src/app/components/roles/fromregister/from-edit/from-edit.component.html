@@ -1,0 +1,44 @@
+<app-home></app-home>
+
+
+<div class="container mt-4">
+
+    <header class="bg-dark text-white p-2 mb-2 text-center">
+        <h1>Editar Rol</h1>
+    </header> 
+
+
+        <form [formGroup]="form"> 
+            
+            <div class="from-group">
+                <label for="id">ID</label>
+                <input type="number" formControlName="id" name="id" class="form-control" [(ngModel)]="roles.id"
+                placeholder="Ingrese id" [ngClass]="{'is-invalid' : submitted && f['id'].errors }" >
+    
+                <div *ngIf="submitted && f['id'].errors " class="invalid-feedback">
+                    <div *ngIf="f['id'].errors['required']">
+                        ID es requerido
+                    </div>
+                </div>
+    
+            </div> 
+            <div class="from-group">
+                <label for="name">Nombre</label>
+                <input type="text" formControlName="name" name="name" class="form-control" [(ngModel)]="roles.name"
+                placeholder="Ingrese nombre" [ngClass]="{'is-invalid' : submitted && f['name'].errors }" >
+    
+                <div *ngIf="submitted && f['name'].errors " class="invalid-feedback">
+                    <div *ngIf="f['name'].errors['required']">
+                        Nombre es requerido
+                    </div>
+                </div>
+    
+            </div>
+                   
+
+            <button class="btn btn-success btn-sm mt-4"  (click)="updateRole()">Actualizar</button>
+        </form>
+    
+</div>
+
+
